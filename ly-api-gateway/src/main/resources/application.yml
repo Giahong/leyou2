@@ -1,0 +1,22 @@
+server:
+  port: 10050
+spring:
+  application:
+    name: api-gateway
+
+# 向eureka注册自己
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1.10086/eureka/
+  instance:
+    prefer-ip-address: true #使用ip地址的方式进行注册，不使用主机名
+    ip-address: 127.0.0.1
+    instance-id: ${spring.application.name}:${server.port}
+
+eureka.c.fe
+
+zuul:
+  prefix: /api
+  retryable: true
+
