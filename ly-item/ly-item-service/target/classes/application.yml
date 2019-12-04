@@ -7,7 +7,7 @@ spring:
     name: item-service
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/mybatis
+    url: jdbc:mysql://localhost:3306/leyou
     username: root
     password: 123
 
@@ -15,10 +15,10 @@ spring:
 eureka:
   client:
     service-url:
-      defaultZone: http://127.0.0.1:10086/eureka/
+      defaultZone: http://127.0.0.1:10086/eureka
   instance:
-    lease-renewal-interval-in-seconds: 5
-    lease-expiration-duration-in-seconds: 10
+    lease-renewal-interval-in-seconds: 5  #每隔5秒发一次心跳
+    lease-expiration-duration-in-seconds: 10  #10秒不发送就过期
     prefer-ip-address: true
     ip-address: 127.0.0.1
     instance-id: ${spring.application.name}:${server.port}
