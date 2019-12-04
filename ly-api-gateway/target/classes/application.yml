@@ -4,17 +4,21 @@ spring:
   application:
     name: api-gateway
 
-# 向eureka注册自己
+
+# 向eureka注册服务
 eureka:
   client:
     service-url:
-      defaultZone: http://127.0.0.1.10086/eureka/
+      defaultZone: http://127.0.0.1:10086/eureka
   instance:
     prefer-ip-address: true
     ip-address: 127.0.0.1
     instance-id: ${spring.application.name}:${server.port}
 
+
 zuul:
-  prefix: /api
+  prefix: /api  #添加路由前缀
   retryable: true
+  routes:
+    item-service: /item/**
 
